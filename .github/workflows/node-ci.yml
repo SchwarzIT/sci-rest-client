@@ -1,7 +1,7 @@
 name: Node.js CI
 on:
   push:
-    branches: [main]
+    branches: [main, feat/initial]
   pull_request:
     branches: [main]
 
