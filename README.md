@@ -8,7 +8,7 @@ This package simplifies the access to the [Integration Content API for SAP Cloud
 -   url construction
 -   session management
 -   csrf token handling
--   zipping and endcoding of artifact content
+-   zipping and encoding of artifact content
 
 and offers a clean and easy-to-use interface for managing and querying integration artifacts of design and runtime.
 

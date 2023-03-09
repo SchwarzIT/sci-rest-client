@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "module": "ES2022",
+        "lib": ["es2022"],
+        "rootDir": "src/",
+        "outDir": "dist/",
+        "resolveJsonModule": true,
+        "strict": true,
+        "target": "es2022"
+    },
+    "include": ["src/**/*"]
+}

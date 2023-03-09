@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: ValueMapping; singleton:=true
+Bundle-Name: ValueMapping
+Bundle-Version: 1.0.0
+Bundle-ManifestVersion: 2
+Bundle-Activator: com.sap.xi.mapping.camel.valmap.ValueMappingActivator
+SAP-NodeType: IFLMAP
+Import-Package: com.sap.xi.mapping.camel.valmap
+SAP-BundleType: ValueMapping
+Import-Service: 
+
