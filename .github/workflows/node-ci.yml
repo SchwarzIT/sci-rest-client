@@ -1,10 +1,10 @@
-name: Node.js CI
 on:
   push:
     branches: [main, feat/initial]
   pull_request:
     branches: [main]
 
+name: Node.js CI
 jobs:
   build:
     runs-on: ubuntu-latest
