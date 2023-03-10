@@ -1,0 +1,48 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+name: node-ci
+permissions:
+  pull-requests: read # allows SonarQube to decorate PRs with analysis results
+
+jobs:
+  sonar-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: SonarSource/sonarqube-scan-action@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args:
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.sources=src
+            #-Dsonar.tests= # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
+            #-Dsonar.verbose= # optional, default is false
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [16.x, 18.x, 19.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.0
+      - run: pnpm i
+      - run: pnpm test
+        env:
+          SCI_API_ENDPOINT: ${{ secrets.SCI_API_ENDPOINT }}
+          SCI_API_USER: ${{ secrets.SCI_API_USER }}
+          SCI_API_PASSWORD: ${{ secrets.SCI_API_PASSWORD }}
+      - run: pnpm build
