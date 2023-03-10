@@ -10,4 +10,4 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          package-name: sci-rest-client
+          package-name: @sit/sci-rest-client

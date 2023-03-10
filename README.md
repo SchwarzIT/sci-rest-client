@@ -54,6 +54,12 @@ const integrationPackages = await SCIRestClient.getIntegrationPackages();
 const integrationPackage = await SCIRestClient.getIntegrationPackage('packageId');
 ```
 
+#### Delete an integration package
+
+```js
+await sciRestClient.deleteIntegrationPackage('packageId');
+```
+
 ### Create an artifact
 
 ```js
@@ -69,7 +75,7 @@ const artifact = await this.createArtifact({
 ### Update an artifact
 
 ```js
-const artifact = await this.updateArtifact({
+await this.updateArtifact({
     artifactId: '<artifactId>',
     artifactType: '<IntegrationFlow | MessageMapping | ValueMapping | ScriptCollection>',
     artifactName: '<artifactName>'
@@ -88,7 +94,7 @@ The method reads and extracts the required information (id, version, name and ar
 #### Update an artifact from an artifact directory
 
 ```js
-const integrationFlow = await SCIRestClient.updateArtifactFromDirectory('<integrationPackageId>', '<pathToArtifactDirectory>');
+await SCIRestClient.updateArtifactFromDirectory('<integrationPackageId>', '<pathToArtifactDirectory>');
 ```
 
 Again the methods reads and extracts the necessary infos from the metadata file mentioned above. But the method is a little special. Once the update fails due to the version read from the metadata doesn't exist, a new version is created under the hood and the update is triggered again automatically.
@@ -126,3 +132,7 @@ Both commands will listen to file changes and execute the corresponding tests ag
 # Contribute
 
 ESLint is used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before commiting.
+
+# Release management
+
+[release-please](https://github.com/googleapis/release-please) is used for release management and automatic CHANGELOG generation. For the latter it's important that commit messages follow the [Conventional Commit messages style](https://www.conventionalcommits.org/en/v1.0.0/).
