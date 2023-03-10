@@ -27,6 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         node-version: [16.x, 18.x, 19.x]
     steps:
@@ -43,5 +44,5 @@ jobs:
         env:
           SCI_API_ENDPOINT: ${{ secrets.SCI_API_ENDPOINT }}
           SCI_API_USER: ${{ secrets.SCI_API_USER }}
-          SCI_API_PASSWORD: ${{ secrets.SCI_API_PASSWORD}}
+          SCI_API_PASSWORD: ${{ secrets.SCI_API_PASSWORD }}
       - run: pnpm build
