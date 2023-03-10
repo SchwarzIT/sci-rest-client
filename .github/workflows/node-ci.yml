@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Analyze with SonarQube.
-        uses: SonarSource/sonarqube-scan-action@v1.1.0
+      - uses: SonarSource/sonarqube-scan-action@v1.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -40,4 +39,9 @@ jobs:
         with:
           version: 7.26.0
       - run: pnpm i
+      - run: pnpm test
+        env:
+          SCI_API_ENDPOINT: ${{ secrets.SCI_API_ENDPOINT }}
+          SCI_API_USER: ${{ secrets.SCI_API_USER }}
+          SCI_API_PASSWORD: ${{ secrets.SCI_API_PASSWORD}}
       - run: pnpm build
