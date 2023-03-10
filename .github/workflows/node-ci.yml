@@ -5,7 +5,25 @@ on:
     branches: [main]
 
 name: Node.js CI
+permissions:
+  pull-requests: read # allows SonarQube to decorate PRs with analysis results
+
 jobs:
+  sonar-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Analyze with SonarQube.
+        uses: SonarSource/sonarqube-scan-action@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args:
+            - Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            - Dsonar.sources=src
+            #-Dsonar.tests= # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
+            #-Dsonar.verbose= # optional, default is false
   build:
     runs-on: ubuntu-latest
     strategy:
