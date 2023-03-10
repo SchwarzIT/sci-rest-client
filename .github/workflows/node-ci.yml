@@ -12,7 +12,7 @@ jobs:
   sonar-analysis:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -al .
+      - uses: actions/checkout@v3
       - name: Analyze with SonarQube.
         uses: SonarSource/sonarqube-scan-action@v1.1.0
         env:
@@ -31,7 +31,6 @@ jobs:
       matrix:
         node-version: [16.x, 18.x, 19.x]
     steps:
-      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
