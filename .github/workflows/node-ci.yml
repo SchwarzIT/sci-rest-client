@@ -12,6 +12,7 @@ jobs:
   sonar-analysis:
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - name: Analyze with SonarQube.
         uses: SonarSource/sonarqube-scan-action@v1.1.0
         env:
