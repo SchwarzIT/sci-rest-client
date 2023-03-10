@@ -20,8 +20,8 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args:
-            - Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            - Dsonar.sources=src
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.sources=src
             #-Dsonar.tests= # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
             #-Dsonar.verbose= # optional, default is false
   build:
