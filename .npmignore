@@ -1,9 +1,10 @@
-test
+src/test/*
 .eslintignore
 .eslintrc.cjs
 .lintstagedrc.js
 .prettierignore
 .prettierrc.js
+.gitignore
 CODEOWNERS
 tsconfig.eslint.json
 tsconfig.json
