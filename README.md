@@ -27,13 +27,13 @@ Furthermore the package offers methods to create and update artifacts based on a
 #### Install the package
 
 ```bash
-npm install @sit/sci-rest-client
+npm install sci-rest-client
 ```
 
 #### Import the package like follows and initialize the client (ESM)
 
 ```js
-import SCIRestClient from '@sit/sci-rest-client';
+import SCIRestClient from 'sci-rest-client';
 
 const SCIRestClient = new SCIRestClient({
     apiEndpoint: '<apiEndpoint>', // e.g. https://sandbox.api.sap.com/cpi/api/v1

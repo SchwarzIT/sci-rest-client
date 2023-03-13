@@ -1,5 +1,5 @@
 {
-    "name": "@sit/sci-rest-client",
+    "name": "sci-rest-client",
     "version": "1.0.0",
     "description": "NodeJS based client for the SAP Cloud Integration REST API",
     "contributors": [
