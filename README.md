@@ -129,10 +129,20 @@ which will show the test results (and much more) on a web page.
 
 Both commands will listen to file changes and execute the corresponding tests again.
 
-# Contribute
+# Contributing
+
+We welcome any type of contribution (code contributions, pull requests, issues) to this project equally.
 
 ESLint is used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before commiting.
 
 # Release management
 
 [release-please](https://github.com/googleapis/release-please) is used for release management and automatic CHANGELOG generation. For the latter it's important that commit messages follow the [Conventional Commit messages style](https://www.conventionalcommits.org/en/v1.0.0/).
+
+# Support
+
+Please use the GitHub bug tracking system to post questions, bug reports or to create pull requests.
+
+# License
+
+This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the LICENSE file.

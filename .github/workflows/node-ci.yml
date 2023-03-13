@@ -1,6 +1,4 @@
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -39,7 +37,7 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7.26.0
-      - run: pnpm i
+      - run: pnpm i --no-frozen-lockfile
       - run: pnpm test
         env:
           SCI_API_ENDPOINT: ${{ secrets.SCI_API_ENDPOINT }}
