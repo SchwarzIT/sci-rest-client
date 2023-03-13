@@ -5,9 +5,20 @@
     "contributors": [
         {
             "name": "Marcel Schork",
-            "email": "marcel.schork@mail.schwarz"
+            "email": "schork.marcel@gmail.com"
         }
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SchwarzIT/sci-rest-client.git"
+    },
+    "keywords": [
+        "SAP",
+        "Cloud Integration",
+        "API",
+        "REST"
+    ],
+    "type": "module",
     "main": "./dist/client/SCIRestClient.js",
     "exports": {
         ".": "./dist/client/SCIRestClient.js",
@@ -21,10 +32,10 @@
             ]
         }
     },
-    "type": "module",
     "simple-git-hooks": {
         "pre-commit": "npx lint-staged"
     },
+    "license": "Apache-2.0",
     "scripts": {
         "test": "vitest run",
         "test:ui": "vitest --ui",
@@ -33,14 +44,6 @@
         "lint": "eslint . --ext .ts",
         "build": "shx rm -rf dist && tsc --project tsconfig.build.json && shx cp -r src/lib/types dist/types"
     },
-    "keywords": [
-        "SAP",
-        "Cloud Integration",
-        "API",
-        "REST"
-    ],
-    "author": "",
-    "license": "Apache-2.0",
     "devDependencies": {
         "@types/node": "18.15.1",
         "@types/uuid": "9.0.1",

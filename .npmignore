@@ -1,9 +1,9 @@
 src/test/*
 .eslintignore
 .eslintrc.cjs
-.lintstagedrc.js
+.lintstagedrc
 .prettierignore
-.prettierrc.js
+.prettierrc
 .gitignore
 CODEOWNERS
 tsconfig.eslint.json
@@ -11,3 +11,5 @@ tsconfig.json
 vite.config.ts
 .env
 .editorconfig
+.github
+tsconfig.build.json
