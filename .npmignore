@@ -11,5 +11,3 @@ tsconfig.json
 vite.config.ts
 .env
 .editorconfig
-pnpm-lock.yaml
-.git
