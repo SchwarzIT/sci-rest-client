@@ -20,6 +20,6 @@ jobs:
           version: 7.26.0
       - run: pnpm i --no-frozen-lockfile
       - run: pnpm build
-      - run: pnpm publish --access public
+      - run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
