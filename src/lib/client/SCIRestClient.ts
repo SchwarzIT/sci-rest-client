@@ -324,6 +324,21 @@ export default class SCIRestClient {
     }
 
     /**
+     * Returns true if the given action is supported
+     *
+     * @param {Action} action - The action to check.
+     * @param {string} artifactDirectoryPath - Path to the directory containing the artifact.
+     *
+     * @returns {boolean} - True if the action is supported.
+     */
+    public isActionSupported(action: Action, artifactDirectoryPath: string) {
+        const artifactType = this.getArtifactType(artifactDirectoryPath);
+        const artifactAPIMetadata = ArtifactAPIMetadata[artifactType] as ArtifactMetadata;
+
+        return artifactAPIMetadata.supportedActions.includes(action);
+    }
+
+    /**
      * Returns true if the given action is supported for the given artifact type.
      *
      * @param {Action} action - The action to check.
@@ -335,6 +350,18 @@ export default class SCIRestClient {
         const artifactAPIMetadata = ArtifactAPIMetadata[artifactType] as ArtifactMetadata;
 
         return artifactAPIMetadata.supportedActions.includes(action);
+    }
+
+    /**
+     * Returns the type of the artifact in the given directory.
+     *
+     * @param {string} artifactDirectoryPath - Path to the directory containing the artifact.
+     *
+     * @returns {ArtifactType} - The type of the artifact.
+     */
+    public getArtifactType(artifactDirectoryPath: string) {
+        const manifestReader = new ManifestReader(artifactDirectoryPath);
+        return manifestReader.getArtifactMetadata().Type;
     }
 
     private invalidateCSRFToken() {

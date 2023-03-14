@@ -5,16 +5,19 @@ import { v4 as uuidv4 } from 'uuid';
 import fs, { ReadStream } from 'fs';
 import replace from 'replace-in-file';
 import { setup, teardown } from '../setupAndTeardown.js';
+import APIAction from '../../lib/client/APIAction.js';
 
 let sciRestClient: SCIRestClient;
 let artiFactDirectory: string;
 let randomPackageId = uuidv4().replaceAll('-', '');
+let messageMappingDirectory: string;
 
 beforeAll(async () => {
     const setupResult = await setup();
     sciRestClient = setupResult.sciRestClient;
     artiFactDirectory = setupResult.artiFactDirectory;
     randomPackageId = setupResult.randomPackageId;
+    messageMappingDirectory = path.join(artiFactDirectory, 'Testpackage', 'MessageMapping');
 });
 
 afterAll(async () => {
@@ -23,22 +26,17 @@ afterAll(async () => {
 
 describe('Message mapping', () => {
     it('create a message mapping', async () => {
-        const integrationFlow = await sciRestClient.createArtifactFromDirectory(
-            randomPackageId,
-            path.join(artiFactDirectory, 'Testpackage', 'MessageMapping')
-        );
-        expect(integrationFlow).toBeDefined();
+        const messageMapping = await sciRestClient.createArtifactFromDirectory(randomPackageId, messageMappingDirectory);
+        expect(messageMapping).toBeDefined();
     });
 
     it('update the message mapping...', async () => {
-        const messageMapping = await sciRestClient.updateArtifactFromDirectory(
-            path.join(artiFactDirectory, 'Testpackage', 'MessageMapping')
-        );
+        const messageMapping = await sciRestClient.updateArtifactFromDirectory(messageMappingDirectory);
         expect(messageMapping).toBe(undefined);
     });
 
-    it.skip('fetch a message mapping', async () => {
-        const readStream = (await sciRestClient.getArtifact('IntegrationFlow', '1.0.0', 'IntegrationFlow')) as ReadStream;
+    it('fetch a message mapping', async () => {
+        const readStream = (await sciRestClient.getArtifact('MessageMapping', '1.0.0', 'MessageMapping')) as ReadStream;
 
         const writer = fs.createWriteStream(path.join(artiFactDirectory, 'test.zip'));
         const finishPromise = new Promise((resolve, reject) => {
@@ -51,7 +49,6 @@ describe('Message mapping', () => {
     });
 
     it('upload a new version of the message mapping', async () => {
-        const messageMappingDirectory = path.join(artiFactDirectory, 'Testpackage', 'MessageMapping');
         await replace({
             files: path.join(messageMappingDirectory, 'META-INF', 'MANIFEST.MF'),
             from: /1.0.0/g,
@@ -61,5 +58,16 @@ describe('Message mapping', () => {
             path.join(artiFactDirectory, 'Testpackage', 'MessageMapping')
         );
         expect(messageMapping).toBe(undefined);
+    });
+
+    it('determine the artifact type', () => {
+        expect(sciRestClient.getArtifactType(messageMappingDirectory)).toBe('MessageMapping');
+    });
+
+    it('check the supported API actions', () => {
+        expect(sciRestClient.isActionSupported(APIAction.Create, messageMappingDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.Update, messageMappingDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.New_Version, messageMappingDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.Delete, messageMappingDirectory)).toBe(false);
     });
 });

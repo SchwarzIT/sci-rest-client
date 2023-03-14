@@ -5,16 +5,19 @@ import { v4 as uuidv4 } from 'uuid';
 import fs, { ReadStream } from 'fs';
 import replace from 'replace-in-file';
 import { setup, teardown } from '../setupAndTeardown.js';
+import APIAction from '../../lib/client/APIAction.js';
 
 let sciRestClient: SCIRestClient;
 let artiFactDirectory: string;
 let randomPackageId = uuidv4().replaceAll('-', '');
+let iFlowDirectory: string;
 
 beforeAll(async () => {
     const setupResult = await setup();
     sciRestClient = setupResult.sciRestClient;
     artiFactDirectory = setupResult.artiFactDirectory;
     randomPackageId = setupResult.randomPackageId;
+    iFlowDirectory = path.join(artiFactDirectory, 'Testpackage', 'IntegrationFlow');
 });
 
 afterAll(async () => {
@@ -23,10 +26,7 @@ afterAll(async () => {
 
 describe('Integration flow', () => {
     it('create an integration flow', async () => {
-        const integrationFlow = await sciRestClient.createArtifactFromDirectory(
-            randomPackageId,
-            path.join(artiFactDirectory, 'Testpackage', 'IntegrationFlow')
-        );
+        const integrationFlow = await sciRestClient.createArtifactFromDirectory(randomPackageId, iFlowDirectory);
         expect(integrationFlow).toBeDefined();
     });
 
@@ -44,16 +44,13 @@ describe('Integration flow', () => {
     });
 
     it('update an integration flow', async () => {
-        const integrationFlow = await sciRestClient.updateArtifactFromDirectory(
-            path.join(artiFactDirectory, 'Testpackage', 'IntegrationFlow')
-        );
+        const integrationFlow = await sciRestClient.updateArtifactFromDirectory(iFlowDirectory);
         expect(integrationFlow).toBe(undefined);
     });
 
     it('upload a new version of an integration flow', async () => {
-        const integrationFlowDirectory = path.join(artiFactDirectory, 'Testpackage', 'IntegrationFlow');
         await replace({
-            files: path.join(integrationFlowDirectory, 'META-INF', 'MANIFEST.MF'),
+            files: path.join(iFlowDirectory, 'META-INF', 'MANIFEST.MF'),
             from: /1.0.0/g,
             to: '2.0.0',
         });
@@ -61,5 +58,16 @@ describe('Integration flow', () => {
             path.join(artiFactDirectory, 'Testpackage', 'IntegrationFlow')
         );
         expect(integrationFlow).toBe(undefined);
+    });
+
+    it('determine the artifact type', () => {
+        expect(sciRestClient.getArtifactType(iFlowDirectory)).toBe('IntegrationFlow');
+    });
+
+    it('check the supported API actions', () => {
+        expect(sciRestClient.isActionSupported(APIAction.Create, iFlowDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.Update, iFlowDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.New_Version, iFlowDirectory)).toBe(true);
+        expect(sciRestClient.isActionSupported(APIAction.Delete, iFlowDirectory)).toBe(false);
     });
 });

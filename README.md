@@ -119,11 +119,17 @@ import APIAction from 'sci-rest-client/client/APIAction';
 const isActionSupported = sciRestClient.isActionSupportedForArtifactType(APIAction.Update, 'IntegrationFlow');
 
 if(isActionSupported) {
-    ....
+    ...
 }
 ```
 
 The available APIActions are: `Create`, `Read`, `Update`, `Delete` and `New_Version`.
+
+#### Get artifact type
+
+```js
+const artifactType = sciRestClient.getArtifactType('<pathToArtifactDirectory>');
+```
 
 # Test
 
@@ -159,7 +165,7 @@ Both commands will listen to file changes and execute the corresponding tests ag
 
 We welcome any type of contribution (code contributions, pull requests, issues) to this project equally.
 
-ESLint is used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before commiting.
+ESLint and SonarQube are used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before committing.
 
 # Release management
 
