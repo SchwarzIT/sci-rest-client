@@ -6,7 +6,6 @@
 This package simplifies the access to the [Integration Content API for SAP Cloud Integration](https://api.sap.com/api/IntegrationContent/overview). It hides all the technical implementation details like
 
 -   url construction
--   session management
 -   csrf token handling
 -   zipping and encoding of artifact content
 
@@ -60,28 +59,31 @@ const integrationPackage = await SCIRestClient.getIntegrationPackage('packageId'
 await sciRestClient.deleteIntegrationPackage('packageId');
 ```
 
-### Create an artifact
+#### Create an artifact
 
 ```js
 const artifact = await this.createArtifact({
-    artifactId: '<artifactId>',
-    artifactType: '<IntegrationFlow | MessageMapping | ValueMapping | ScriptCollection>',
-    artifactName: '<artifactName>'
-    artifactContent: '<base64EncodedZip>'
-    integrationPackageId: '<integrationPackageId>',
+    Id: '<artifactId>',
+    Type: '<IntegrationFlow | MessageMapping | ValueMapping | ScriptCollection>',
+    Name: '<artifactName>'
+    Content: '<base64EncodedZip>'
+    PackageId: '<integrationPackageId>',
 });
 ```
 
-### Update an artifact
+#### Update an artifact
 
 ```js
 await this.updateArtifact({
-    artifactId: '<artifactId>',
-    artifactType: '<IntegrationFlow | MessageMapping | ValueMapping | ScriptCollection>',
-    artifactName: '<artifactName>'
-    artifactContent: '<base64EncodedZip>'
+    Id: '<artifactId>',
+    Version: '<artifactVersion'>,
+    Type: '<IntegrationFlow | MessageMapping | ValueMapping | ScriptCollection>',
+    Name: '<artifactName>'
+    Content: '<base64EncodedZip>'
 });
 ```
+
+This method is a little special. If the update fails due to a version that doesn't exist, a new version is created under the hood and the update is triggered again automatically.
 
 #### Create an artifact from an artifact directory
 
@@ -94,10 +96,40 @@ The method reads and extracts the required information (id, version, name and ar
 #### Update an artifact from an artifact directory
 
 ```js
-await SCIRestClient.updateArtifactFromDirectory('<integrationPackageId>', '<pathToArtifactDirectory>');
+await SCIRestClient.updateArtifactFromDirectory('<pathToArtifactDirectory>');
 ```
 
-Again the methods reads and extracts the necessary infos from the metadata file mentioned above. But the method is a little special. Once the update fails due to the version read from the metadata doesn't exist, a new version is created under the hood and the update is triggered again automatically.
+Again the method reads and extracts the necessary infos from the metadata file mentioned above.
+`updateArtifact(...)` is used under the hood, so new versions will be created automatically if necessary.
+
+#### Create new artifact version
+
+```js
+await this.createNewArtifactVersion('<artifactId>', '<artifactVersion>', '<artifactType');
+```
+
+The method creates a new version of the artifact, but this is just a placeholder. Afterwards to content needs to uploaded via `updateArtifact(...)`. It's recommended to just call the update method directly in case you don't need any special logic for creating new versions.
+
+#### Check if API action is supported for artifact
+
+```js
+import APIAction from 'sci-rest-client/client/APIAction';
+
+// const isActionSupported = sciRestClient.isActionSupported(APIAction.Update, '<pathToArtifactDirectory>');
+const isActionSupported = sciRestClient.isActionSupportedForArtifactType(APIAction.Update, 'IntegrationFlow');
+
+if(isActionSupported) {
+    ...
+}
+```
+
+The available APIActions are: `Create`, `Read`, `Update`, `Delete` and `New_Version`.
+
+#### Get artifact type
+
+```js
+const artifactType = sciRestClient.getArtifactType('<pathToArtifactDirectory>');
+```
 
 # Test
 
@@ -133,7 +165,7 @@ Both commands will listen to file changes and execute the corresponding tests ag
 
 We welcome any type of contribution (code contributions, pull requests, issues) to this project equally.
 
-ESLint is used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before commiting.
+ESLint and SonarQube are used to ensure code quality. A Git commit hook will fix lint findings automatically (if possible) and prevent commits with linting errors. Prettier is used for formatting. Staged changes will be formatted automatically before committing.
 
 # Release management
 
