@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.0.1...v1.1.0) (2023-03-14)
+
+
+### Features
+
+* **SCIRestClient:** add public method for determining the artifact type from the artifacts manifest file ([abc4ade](https://github.com/SchwarzIT/sci-rest-client/commit/abc4adebf48e68b11a0e9c74fd2271e3924f80cf))
+* **SCIRestClient:** add public method to check whether an API action is supported for the given artifact directory ([abc4ade](https://github.com/SchwarzIT/sci-rest-client/commit/abc4adebf48e68b11a0e9c74fd2271e3924f80cf))
+* **SCIRestClient:** add public methods getArtifactType and isActionSupported ([#16](https://github.com/SchwarzIT/sci-rest-client/issues/16)) ([abc4ade](https://github.com/SchwarzIT/sci-rest-client/commit/abc4adebf48e68b11a0e9c74fd2271e3924f80cf))
+
 ## [1.0.1](https://github.com/SchwarzIT/sci-rest-client/compare/v1.0.0...v1.0.1) (2023-03-13)
 
 
