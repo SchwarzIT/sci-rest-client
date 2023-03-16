@@ -137,6 +137,8 @@ export default class SCIRestClient {
      * @param {string} artifactVersion - The version of the artifact.
      * @param {ArtifactType} artifactType - The type of the artifact.
      *
+     * @returns {Promise<fs.ReadStream | void>} - A read stream for the artifact or void if an error occurred.
+     *
      */
     async getArtifact(artifactId: string, artifactVersion: string, artifactType: ArtifactType): Promise<fs.ReadStream | void> {
         log.info(`Reading artifact ${artifactId}...`);
@@ -362,6 +364,18 @@ export default class SCIRestClient {
     public getArtifactType(artifactDirectoryPath: string) {
         const manifestReader = new ManifestReader(artifactDirectoryPath);
         return manifestReader.getArtifactMetadata().Type;
+    }
+
+    /**
+     * Returns the metadata of the artifact in the given directory.
+     *
+     * @param {string} artifactDirectoryPath - Path to the directory containing the artifact.
+     *
+     * @returns {Artifact} - The metadata of the artifact.
+     */
+    public getArtifactMetadata(artifactDirectoryPath: string) {
+        const manifestReader = new ManifestReader(artifactDirectoryPath);
+        return manifestReader.getArtifactMetadata();
     }
 
     private invalidateCSRFToken() {

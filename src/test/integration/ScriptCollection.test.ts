@@ -68,4 +68,11 @@ describe('Script collection', () => {
         expect(sciRestClient.isActionSupported(APIAction.New_Version, scriptCollectionDirectory)).toBe(true);
         expect(sciRestClient.isActionSupported(APIAction.Delete, scriptCollectionDirectory)).toBe(false);
     });
+
+    it('provides the metadata for the artifact in the given directory', () => {
+        expect(sciRestClient.getArtifactMetadata(scriptCollectionDirectory).Id).toBe('ScriptCollection');
+        expect(sciRestClient.getArtifactMetadata(scriptCollectionDirectory).Version).toBe('2.0.0');
+        expect(sciRestClient.getArtifactMetadata(scriptCollectionDirectory).Name).toBe('ScriptCollection');
+        expect(sciRestClient.getArtifactMetadata(scriptCollectionDirectory).Type).toBe('ScriptCollection');
+    });
 });
