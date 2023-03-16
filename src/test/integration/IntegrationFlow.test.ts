@@ -70,4 +70,11 @@ describe('Integration flow', () => {
         expect(sciRestClient.isActionSupported(APIAction.New_Version, iFlowDirectory)).toBe(true);
         expect(sciRestClient.isActionSupported(APIAction.Delete, iFlowDirectory)).toBe(false);
     });
+
+    it('provides the metadata for the artifact in the given directory', () => {
+        expect(sciRestClient.getArtifactMetadata(iFlowDirectory).Id).toBe('IntegrationFlow');
+        expect(sciRestClient.getArtifactMetadata(iFlowDirectory).Version).toBe('2.0.0');
+        expect(sciRestClient.getArtifactMetadata(iFlowDirectory).Name).toBe('Integration Flow');
+        expect(sciRestClient.getArtifactMetadata(iFlowDirectory).Type).toBe('IntegrationFlow');
+    });
 });

@@ -131,6 +131,14 @@ The available APIActions are: `Create`, `Read`, `Update`, `Delete` and `New_Vers
 const artifactType = sciRestClient.getArtifactType('<pathToArtifactDirectory>');
 ```
 
+#### Get artifact artifact metadata
+
+```js
+const artifactMetadata = sciRestClient.getArtifactMetadata('<pathToArtifactDirectory>');
+```
+
+Returns an object containing the id, name, version and type of the artifact in the specified directory.
+
 # Test
 
 The package is implemented in TypeScript and [Vitest](https://vitest.dev/) is used as a test framework. The tests need to run against a real Integration content API endpoint. The API endpoint and the credentials are read from environment variables. For executing the tests create a `.env`file inside the root directory of the package

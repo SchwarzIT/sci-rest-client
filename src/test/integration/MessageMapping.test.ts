@@ -70,4 +70,11 @@ describe('Message mapping', () => {
         expect(sciRestClient.isActionSupported(APIAction.New_Version, messageMappingDirectory)).toBe(true);
         expect(sciRestClient.isActionSupported(APIAction.Delete, messageMappingDirectory)).toBe(false);
     });
+
+    it('provides the metadata for the artifact in the given directory', () => {
+        expect(sciRestClient.getArtifactMetadata(messageMappingDirectory).Id).toBe('MessageMapping');
+        expect(sciRestClient.getArtifactMetadata(messageMappingDirectory).Version).toBe('2.0.0');
+        expect(sciRestClient.getArtifactMetadata(messageMappingDirectory).Name).toBe('MessageMapping');
+        expect(sciRestClient.getArtifactMetadata(messageMappingDirectory).Type).toBe('MessageMapping');
+    });
 });

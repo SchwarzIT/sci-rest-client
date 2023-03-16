@@ -68,4 +68,11 @@ describe('Value mapping', () => {
         expect(sciRestClient.isActionSupported(APIAction.New_Version, valueMappingDirectory)).toBe(true);
         expect(sciRestClient.isActionSupported(APIAction.Delete, valueMappingDirectory)).toBe(false);
     });
+
+    it('provides the metadata for the artifact in the given directory', () => {
+        expect(sciRestClient.getArtifactMetadata(valueMappingDirectory).Id).toBe('ValueMapping');
+        expect(sciRestClient.getArtifactMetadata(valueMappingDirectory).Version).toBe('1.0.0');
+        expect(sciRestClient.getArtifactMetadata(valueMappingDirectory).Name).toBe('ValueMapping');
+        expect(sciRestClient.getArtifactMetadata(valueMappingDirectory).Type).toBe('ValueMapping');
+    });
 });
