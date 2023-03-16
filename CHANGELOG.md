@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.1.0...v1.2.0) (2023-03-16)
+
+
+### Features
+
+* Add a public method to retrieve the artifact metadata for a given artifact directory ([#18](https://github.com/SchwarzIT/sci-rest-client/issues/18)) ([edd8381](https://github.com/SchwarzIT/sci-rest-client/commit/edd8381e0d184c185dc87cf42060988ff6663d29))
+
 ## [1.1.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.0.1...v1.1.0) (2023-03-14)
 
 
