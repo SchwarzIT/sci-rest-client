@@ -55,7 +55,7 @@
         "eslint": "8.36.0",
         "isolated": "3.0.25",
         "lint-staged": "13.2.0",
-        "prettier": "2.8.4",
+        "prettier": "2.8.7",
         "replace-in-file": "6.3.5",
         "shx": "0.3.4",
         "simple-git-hooks": "2.8.1",
