@@ -45,7 +45,7 @@
         "build": "shx rm -rf dist && tsc --project tsconfig.build.json && shx cp -r src/lib/types dist/types"
     },
     "devDependencies": {
-        "@types/node": "18.15.1",
+        "@types/node": "18.15.11",
         "@types/uuid": "9.0.1",
         "@typescript-eslint/eslint-plugin": "5.54.1",
         "@typescript-eslint/parser": "5.54.1",
