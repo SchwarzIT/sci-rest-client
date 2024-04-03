@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.2.0...v1.3.0) (2024-04-03)
+
+
+### Features
+
+* add method to check if integration package is existing ([#64](https://github.com/SchwarzIT/sci-rest-client/issues/64)) ([5edd7ec](https://github.com/SchwarzIT/sci-rest-client/commit/5edd7ec415429dc6af19d1d99d47180e73b0e98e))
+
 ## [1.2.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.1.0...v1.2.0) (2023-03-16)
 
 
