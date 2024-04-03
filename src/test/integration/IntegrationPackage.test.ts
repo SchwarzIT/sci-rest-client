@@ -29,4 +29,14 @@ describe('Integration packages', () => {
         const integrationPackage = (await sciRestClient.getIntegrationPackage(randomPackageId)) as IntegrationPackage;
         expect(integrationPackage.Id).toBe(randomPackageId);
     });
+
+    it('check if integration package exists', async () => {
+        const integrationPackageExists = await sciRestClient.isIntegrationPackageExisting(randomPackageId);
+        expect(integrationPackageExists).toBeTruthy();
+    });
+
+    it('check if integration package does not exist', async () => {
+        const integrationPackageExists = await sciRestClient.isIntegrationPackageExisting('dummyIdThatShouldNotExist');
+        expect(integrationPackageExists).toBeFalsy();
+    });
 });

@@ -67,6 +67,14 @@ export default class SCIRestClient {
             ).data as ODataResponse;
             return response.d as IntegrationPackage;
         } catch (error: unknown) {
+            if (this.isAxiosError(error)) {
+                const response = error.response as AxiosResponse;
+                if (response.status === 404) {
+                    throw new Error(`HTTP status code ${response.status} - ${response.statusText}`, {
+                        cause: 404,
+                    });
+                }
+            }
             void this.checkResponse(error);
         }
     }
@@ -108,6 +116,26 @@ export default class SCIRestClient {
             return await this.checkResponse(error, async () => {
                 return await this.createIntegrationPackage(integrationPackage);
             });
+        }
+    }
+
+    /**
+     * Checks if the the integration package with the given id exists.
+     *
+     * @param {string} integrationPackageId - The id of the integration package.
+     *
+     * @returns {Promise<boolean | void>} - True if the package exists, false if the package can't be found or void if an error occurred.
+     */
+    public async isIntegrationPackageExisting(integrationPackageId: string): Promise<boolean | void> {
+        try {
+            log.info(`Check if integration package ${integrationPackageId} exists...`);
+            await this.getIntegrationPackage(integrationPackageId);
+            return true;
+        } catch (error: unknown) {
+            if ((error as Error).cause === 404) {
+                return false;
+            }
+            void this.checkResponse(error);
         }
     }
 
