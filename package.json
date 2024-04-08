@@ -62,7 +62,7 @@
         "replace-in-file": "7.1.0",
         "shx": "0.3.4",
         "simple-git-hooks": "2.11.1",
-        "typescript": "5.4.3",
+        "typescript": "5.4.4",
         "uuid": "9.0.1",
         "vite": "5.2.7",
         "vitest": "1.4.0"
