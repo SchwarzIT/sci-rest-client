@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?><bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ifl="http:///com.sap.ifl.model/Ifl.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.1.2.201502162150" id="Definitions_1" name="Definitions 1" targetNamespace="http://com.sap.it.ifl.tooling/default/flow">
+    <bpmn2:extensionElements>
+        <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+            <key>IntegrationFlowVersion</key>
+            <value>1.0</value>
+    </ifl:property>
+    </bpmn2:extensionElements>
+    <bpmn2:partnerRole id="_PartnerRole_2" name="System">
+        <bpmn2:participantRef>Participant_1</bpmn2:participantRef>
+    </bpmn2:partnerRole>
+    <bpmn2:partnerRole id="_PartnerRole_3" name="System">
+        <bpmn2:participantRef>Participant_2</bpmn2:participantRef>
+    </bpmn2:partnerRole>
+    <bpmn2:collaboration id="Collaboration_1" name="Default Collaboration">
+        <bpmn2:extensionElements>
+            <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                <key>routeid</key>
+                <value>MyProject</value>
+      </ifl:property>
+            <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                <key>errorStrategy</key>
+                <value>None</value>
+      </ifl:property>
+            <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                <key>namespaceMapping</key>
+                <value>xmlns:p1=http://sap.com/xi/SFIHCM03</value>
+      </ifl:property>
+            <ifl:property>
+                <key>returnExceptionToSender</key>
+                <value/>
+            </ifl:property>
+            <ifl:property>
+                <key>ServerTrace</key>
+                <value/>
+            </ifl:property>
+            <ifl:property>
+                <key>cmdVariantUri</key>
+                <value>ctype::IFlowVariant/cname::IFlowConfiguration</value>
+            </ifl:property>
+            <ifl:property>
+                <key>log</key>
+                <value>All events</value>
+            </ifl:property>
+            <ifl:property>
+                <key>allowedHeaderList</key>
+                <value/>
+            </ifl:property>
+        </bpmn2:extensionElements>
+        <bpmn2:participant id="Participant_1" ifl:type="EndpointSender" name="SAPHCM">
+            <bpmn2:extensionElements>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>enableBasicAuthentication</key>
+                    <value>{{SAPHCM_enableBasicAuthentication_17}}</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>subject0</key>
+                    <value>{{subject}}</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>issuer0</key>
+                    <value>{{issuer}}</value>
+        </ifl:property>
+                <ifl:property>
+                    <key>ifl:type</key>
+                    <value>EndpointSender</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:participant>
+        <bpmn2:participant id="Participant_3" ifl:type="IntegrationProcess" name="Integration Process" processRef="Process_1">
+            <bpmn2:extensionElements/>
+        </bpmn2:participant>
+        <bpmn2:participant id="Participant_2" ifl:type="EndpointRecevier" name="SuccessFactors">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>ifl:type</key>
+                    <value>EndpointRecevier</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:participant>
+        <bpmn2:messageFlow id="MessageFlow_1" name="SAP" sourceRef="Participant_1" targetRef="StartEvent_1">
+            <bpmn2:extensionElements>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>Name</key>
+                    <value>SAP</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>Description</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentType</key>
+                    <value>SOAP</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentNS</key>
+                    <value>sap</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentSWCVId</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentSWCVName</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>adapterVersion</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>TransportProtocol</key>
+                    <value>HTTP</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>TransportProtocolVersion</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>MessageProtocol</key>
+                    <value>SOAP 1.x</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>MessageProtocolVersion</key>
+                    <value>1.2</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>address</key>
+                    <value>{{SenderAddress}}</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapWsdlURL</key>
+                    <value>/wsdl/SFSFOffboardingGetOffboardUserRecord_Out.wsdl</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapServiceName</key>
+                    <value>p1:SFSFOffboardingGetOffboardUserRecord_Out</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapWsdlPortName</key>
+                    <value>p1:SFSFOffboardingGetOffboardUserRecord_Out</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapOptions</key>
+                    <value>None</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>WSSecurity</key>
+                    <value>None</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>WSSecurityType</key>
+                    <value>VerifyMessage</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>SaveIncomingSignedMessage</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>CheckTimeStamp</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>SenderBasicSecurityProfileCompliant</key>
+                    <value>1</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PrivateKeyAliasResponseSigning</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PublicKeyAliasResponseEncryption</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>InitiatorTokenIncludeStrategy</key>
+                    <value>AlwaysToRecipient</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>X509TokenAssertion</key>
+                    <value>WssX509V3Token10</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>RecipientTokenIncludeStrategy</key>
+                    <value>Never</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>AlgorithmSuiteAssertion</key>
+                    <value>Basic128Rsa15</value>
+        </ifl:property>
+                <ifl:property>
+                    <key>system</key>
+                    <value>SAPHCM</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>direction</key>
+                    <value>Sender</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::AdapterVariant/cname::sap:SOAP/tp::HTTP/mp::SOAP 1.x/direction::Sender</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:messageFlow>
+        <bpmn2:messageFlow id="MessageFlow_2" name="SuccessFactors" sourceRef="EndEvent_1" targetRef="Participant_2">
+            <bpmn2:extensionElements>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>Name</key>
+                    <value>SuccessFactors</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>Description</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentType</key>
+                    <value>SOAP</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentNS</key>
+                    <value>sap</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentSWCVId</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>ComponentSWCVName</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>adapterVersion</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>TransportProtocol</key>
+                    <value>HTTP</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>TransportProtocolVersion</key>
+                    <value>1.0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>MessageProtocol</key>
+                    <value>SOAP 1.x</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>MessageProtocolVersion</key>
+                    <value>1.2</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>address</key>
+                    <value>{{Offboarding_EndPoint}}</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>proxyType</key>
+                    <value>default</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapWsdlURL</key>
+                    <value>/wsdl/SFSFOffboardingGetOffboardUserRecordWithExportId_In.wsdl</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapServiceName</key>
+                    <value>p1:SFSFOffboardingGetOffboardUserRecordWithExportId_In</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>soapWsdlPortName</key>
+                    <value>p1:SFSFOffboardingGetOffboardUserRecordWithExportId_In</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>requestTimeout</key>
+                    <value>60000</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>CompressMessage</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>allowChunking</key>
+                    <value>1</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>enableAnonymous</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>enableBasicAuthentication</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>WSSecurity_outbound</key>
+                    <value>None</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>UserNameTokenOption</key>
+                    <value>None</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>UserNameTokenCredentialName</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>WsdlUserNameTokenCredentialName</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>WSSecurityType_outbound</key>
+                    <value>SignMessage</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>SetTimeStamp</key>
+                    <value>0</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PrivateKeyAliasSigning_wsdl</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PublicKeyAliasEncryption_wsdl</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>SenderBasicSecurityProfileCompliant_wsdl</key>
+                    <value>1</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>SenderBasicSecurityProfileCompliant</key>
+                    <value>1</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PrivateKeyAliasSigning</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>PublicKeyAliasEncryption</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>InitiatorTokenIncludeStrategy_outbound</key>
+                    <value>AlwaysToRecipient</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>X509TokenAssertion</key>
+                    <value>WssX509V3Token10</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>RecipientTokenIncludeStrategy</key>
+                    <value>Never</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>recipientX509TokenAssertion</key>
+                    <value>WssX509V3Token10</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>Layout_outbound</key>
+                    <value>Strict</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>AlgorithmSuiteAssertion</key>
+                    <value>Basic128Rsa15</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>operationName</key>
+                    <value>p1:SFSFOffboardingGetOffboardUserRecordWithExportId_In</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>credentialName</key>
+                    <value/>
+        </ifl:property>
+                <ifl:property>
+                    <key>system</key>
+                    <value>SuccessFactors</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>privateKeyAlias</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyHost</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>direction</key>
+                    <value>Receiver</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::AdapterVariant/cname::sap:SOAP/tp::HTTP/mp::SOAP 1.x/direction::Receiver</value>
+                </ifl:property>
+                <ifl:property>
+                    <key>proxyPort</key>
+                    <value/>
+                </ifl:property>
+            </bpmn2:extensionElements>
+        </bpmn2:messageFlow>
+    </bpmn2:collaboration>
+    <bpmn2:process id="Process_1" isExecutable="false" name="Integration Process">
+        <bpmn2:extensionElements>
+            <ifl:property>
+                <key>cmdVariantUri</key>
+                <value>ctype::FlowElementVariant/cname::IntegrationProcess</value>
+            </ifl:property>
+        </bpmn2:extensionElements>
+        <bpmn2:startEvent id="StartEvent_1" name="Start">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::MessageStartEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+            <bpmn2:messageEventDefinition id="MessageEventDefinition_1"/>
+        </bpmn2:startEvent>
+        <bpmn2:endEvent id="EndEvent_1" name="End">
+            <bpmn2:extensionElements>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::MessageEndEvent</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+            <bpmn2:messageEventDefinition id="MessageEventDefinition_2"/>
+        </bpmn2:endEvent>
+        <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="_CallActivity_2"/>
+        <bpmn2:callActivity id="_CallActivity_2" name="Mapping">
+            <bpmn2:extensionElements>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>activityType</key>
+                    <value>Mapping</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>mappinguri</key>
+                    <value>dir://opmap/src/main/resources/mapping/SFSFOffboardingGetOffboardUserRecord_Out_to_SFSFOffboardingGetOffboardUserRecordWithExportId_In.opmap</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>mappingname</key>
+                    <value>SFSFOffboardingGetOffboardUserRecord_Out_to_SFSFOffboardingGetOffboardUserRecordWithExportId_In</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>mappingpath</key>
+                    <value>src/main/resources/mapping/SFSFOffboardingGetOffboardUserRecord_Out_to_SFSFOffboardingGetOffboardUserRecordWithExportId_In</value>
+        </ifl:property>
+                <ifl:property xmlns:ns="http://www.w3.org/2001/XMLSchema">
+                    <key>bundle-name</key>
+                    <value/>
+                </ifl:property>
+                <ifl:property>
+                    <key>cmdVariantUri</key>
+                    <value>ctype::FlowstepVariant/cname::OperationMapping</value>
+                </ifl:property>
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+            <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+        </bpmn2:callActivity>
+        <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="_CallActivity_2" targetRef="EndEvent_1"/>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1" name="Default Collaboration Diagram">
+        <bpmndi:BPMNPlane bpmnElement="Collaboration_1" id="BPMNPlane_1">
+            <bpmndi:BPMNShape bpmnElement="Participant_1" id="BPMNShape_Participant_1" isHorizontal="false">
+                <dc:Bounds height="140.0" width="100.0" x="40.0" y="100.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_1">
+                    <dc:Bounds height="15.0" width="50.0" x="65.0" y="103.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Participant_2" id="BPMNShape_Participant_2" isHorizontal="false">
+                <dc:Bounds height="140.0" width="100.0" x="900.0" y="100.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_2">
+                    <dc:Bounds height="15.0" width="89.0" x="905.0" y="103.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Participant_3" id="BPMNShape_Participant_3" isHorizontal="false">
+                <dc:Bounds height="220.0" width="540.0" x="250.0" y="60.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_3">
+                    <dc:Bounds height="15.0" width="107.0" x="466.0" y="63.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="BPMNShape_StartEvent_1">
+                <dc:Bounds height="36.0" width="36.0" x="270.0" y="150.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_4" labelStyle="BPMNLabelStyle_1">
+                    <dc:Bounds height="15.0" width="25.0" x="275.0" y="186.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="EndEvent_1" id="BPMNShape_EndEvent_1">
+                <dc:Bounds height="36.0" width="36.0" x="736.0" y="150.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_5" labelStyle="BPMNLabelStyle_1">
+                    <dc:Bounds height="15.0" width="22.0" x="743.0" y="186.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_CallActivity_2" id="BPMNShape_CallActivity_1" isExpanded="true">
+                <dc:Bounds height="60.0" width="100.0" x="460.0" y="138.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_9" labelStyle="BPMNLabelStyle_1">
+                    <dc:Bounds height="15.0" width="79.0" x="470.0" y="160.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_1" id="BPMNEdge_SequenceFlow_1" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_CallActivity_1">
+                <di:waypoint x="306.0" xsi:type="dc:Point" y="168.0"/>
+                <di:waypoint x="460.0" xsi:type="dc:Point" y="168.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_6" labelStyle="BPMNLabelStyle_1"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="MessageFlow_1" id="BPMNEdge_MessageFlow_1" sourceElement="BPMNShape_Participant_1" targetElement="BPMNShape_StartEvent_1">
+                <di:waypoint x="140.0" xsi:type="dc:Point" y="168.0"/>
+                <di:waypoint x="270.0" xsi:type="dc:Point" y="168.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_7" labelStyle="BPMNLabelStyle_1">
+                    <dc:Bounds height="15.0" width="32.0" x="190.0" y="169.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="MessageFlow_2" id="BPMNEdge_MessageFlow_2" sourceElement="BPMNShape_EndEvent_1" targetElement="BPMNShape_Participant_2">
+                <di:waypoint x="776.0" xsi:type="dc:Point" y="168.0"/>
+                <di:waypoint x="831.0" xsi:type="dc:Point" y="168.0"/>
+                <di:waypoint x="831.0" xsi:type="dc:Point" y="170.0"/>
+                <di:waypoint x="900.0" xsi:type="dc:Point" y="170.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_8" labelStyle="BPMNLabelStyle_1">
+                    <dc:Bounds height="15.0" width="32.0" x="822.0" y="171.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_2" id="BPMNEdge_SequenceFlow_2" sourceElement="BPMNShape_CallActivity_1" targetElement="BPMNShape_EndEvent_1">
+                <di:waypoint x="560.0" xsi:type="dc:Point" y="168.0"/>
+                <di:waypoint x="740.0" xsi:type="dc:Point" y="168.0"/>
+                <bpmndi:BPMNLabel id="BPMNLabel_10" labelStyle="BPMNLabelStyle_1"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+        <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
+            <dc:Font name="arial" size="9.0"/>
+        </bpmndi:BPMNLabelStyle>
+    </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
