@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.3.1...v1.4.0) (2024-04-15)
+
+
+### Features
+
+* use metadata prop Bundle-SymbolicName as artifact id. ([#75](https://github.com/SchwarzIT/sci-rest-client/issues/75)) ([8f41898](https://github.com/SchwarzIT/sci-rest-client/commit/8f418984f8a8af0abeb3917554d29f13b50cb8f5))
+
 ## [1.3.1](https://github.com/SchwarzIT/sci-rest-client/compare/v1.3.0...v1.3.1) (2024-04-15)
 
 
