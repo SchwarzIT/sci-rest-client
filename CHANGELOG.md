@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/SchwarzIT/sci-rest-client/compare/v1.3.0...v1.3.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* support metadata props spread over several lines ([#73](https://github.com/SchwarzIT/sci-rest-client/issues/73)) ([39633b2](https://github.com/SchwarzIT/sci-rest-client/commit/39633b201b2c13ac933c43f3f64132b576ae1ef0))
+
 ## [1.3.0](https://github.com/SchwarzIT/sci-rest-client/compare/v1.2.0...v1.3.0) (2024-04-03)
 
 
