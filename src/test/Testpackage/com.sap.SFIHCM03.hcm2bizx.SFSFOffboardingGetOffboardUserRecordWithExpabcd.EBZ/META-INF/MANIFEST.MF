@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Description: 
 Bundle-SymbolicName: com.sap.SFIHCM03.hcm2bizx.SFSFOffboardingGetOffbo
- ardUserRecordWithExpabcd; singleton:=true
+ ardUserRecordWithExpabcd.EBZ; singleton:=true
 Origin-Bundle-SymbolicName: com.sap.SFIHCM03.hcm2bizx.SFSFOffboardingG
  etOffboardUserRecordWithExpabcd
 Bundle-ManifestVersion: 2
