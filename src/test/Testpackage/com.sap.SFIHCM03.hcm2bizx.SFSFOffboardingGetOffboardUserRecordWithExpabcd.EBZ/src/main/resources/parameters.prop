@@ -1,0 +1,6 @@
+#Thu Apr 11 09:27:31 UTC 2024
+SenderAddress=/hcm2bizx/SFSFOffboardingGetOffboardUserRecordWithExportId
+SAPHCM_enableBasicAuthentication_17=false
+subject=DC\=sender,CN\=sender
+Offboarding_EndPoint=https\://<SuccessFactors_Onboarding_Endpoint>
+issuer=DC\=issuer,CN\=issuer

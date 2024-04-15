@@ -10,14 +10,20 @@ export default class ManifestReader {
     constructor(artifactDirectory: string) {
         log.info(`Reading manifest from ${artifactDirectory}...`);
         this.manifestEntries = new Map();
-        fs.readFileSync(path.join(artifactDirectory, 'META-INF', 'MANIFEST.MF'), 'utf-8')
-            .split(/\r?\n/)
-            .forEach((line) => {
-                const [key, value] = line.split(':');
-                if (key && value) {
-                    this.manifestEntries.set(key.trim(), value.trim());
-                }
-            });
+        const lines = fs.readFileSync(path.join(artifactDirectory, 'META-INF', 'MANIFEST.MF'), 'utf-8').split(/\r?\n/);
+
+        let lastLineKey = '';
+        lines.forEach((line) => {
+            const [key, value] = line.split(':');
+            if (key && value && key.match(/^[^\s]+$/)) {
+                const keyTrimmed = key.trim();
+                this.manifestEntries.set(keyTrimmed, value.trim());
+                lastLineKey = keyTrimmed;
+            } else if (lastLineKey) {
+                const lastValue = this.manifestEntries.get(lastLineKey);
+                this.manifestEntries.set(lastLineKey, `${lastValue}${key.trim()}`);
+            }
+        });
     }
 
     get(key: string) {

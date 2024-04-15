@@ -1,0 +1,6 @@
+#Store metainfo properties
+#Thu Apr 11 09:27:31 UTC 2024
+description=This process is used to get employee data for an offboarded employee.
+SAP-MarkedSAP2SAP=SAP_TO_SAP_INTEGRATION
+source=SAPHCM
+target=SAPSuccessFactors
