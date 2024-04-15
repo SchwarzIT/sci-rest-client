@@ -33,8 +33,8 @@ export default class ManifestReader {
     getArtifactMetadata(): Artifact {
         return {
             Id:
-                (this.manifestEntries.get('Origin-Bundle-SymbolicName') as string) ||
-                (this.manifestEntries.get('Bundle-SymbolicName') as string).split(';')[0],
+                (this.manifestEntries.get('Bundle-SymbolicName') as string).split(';')[0] ||
+                (this.manifestEntries.get('Origin-Bundle-SymbolicName') as string),
             Version: this.manifestEntries.get('Bundle-Version') as string,
             Name: this.manifestEntries.get('Bundle-Name') as string,
             Type: this.manifestEntries.get('SAP-BundleType') as ArtifactType,
