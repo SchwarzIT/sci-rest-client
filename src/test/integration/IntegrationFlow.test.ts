@@ -32,7 +32,7 @@ describe('Integration flow', () => {
         });
 
         it('fetch an integration flow ', async () => {
-            const iFlowId = sciRestClient.getArtifactMetadata(path.join(artiFactDirectory, 'TestPackage', iFlowFolder)).Id;
+            const iFlowId = sciRestClient.getArtifactMetadata(path.join(artiFactDirectory, 'Testpackage', iFlowFolder)).Id;
             const readStream = (await sciRestClient.getArtifact(iFlowId, '1.0.0', 'IntegrationFlow')) as ReadStream;
 
             const writer = fs.createWriteStream(path.join(artiFactDirectory, 'test.zip'));
