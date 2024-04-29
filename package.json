@@ -57,7 +57,7 @@
         "eslint": "8.57.0",
         "isolated": "3.0.25",
         "lint-staged": "15.2.2",
-        "npm-check-updates": "16.14.18",
+        "npm-check-updates": "16.14.20",
         "prettier": "3.2.5",
         "replace-in-file": "7.1.0",
         "shx": "0.3.4",
