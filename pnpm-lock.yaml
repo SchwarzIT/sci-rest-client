@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@odata/client':
-    specifier: 2.21.8
-    version: 2.21.8
+    specifier: 2.21.10
+    version: 2.21.10
   axios:
     specifier: 1.6.8
     version: 1.6.8
@@ -435,8 +435,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@newdash/newdash@5.21.4:
-    resolution: {integrity: sha512-bFNcF95XYMnZwP6VXdq1ZxfkzQiSUFFDXMezEzMd/DgUZVnFTGnqf/mZ6pBEoeqqtUnGvhxL/JqtdZOb4eLsZw==}
+  /@newdash/newdash@5.22.1:
+    resolution: {integrity: sha512-EDtY/brpbzetMkMLQBOB8vUcuFO3Oqk/WysmjqpR74DYMiEhwBLwZkDv578a0YQFAQpDBFnI2ZGAXVR36QQTWA==}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -535,16 +535,16 @@ packages:
       - supports-color
     dev: true
 
-  /@odata/client@2.21.8:
-    resolution: {integrity: sha512-NeVssWCJ1b9wao/HGz5ZFHjAxA52CM6u4UnRpMF15Xuf4lML81LRd1FQZRToDJLTR13UNoBkZX64Ef5ySJIZAg==}
-    engines: {node: '>=14', npm: '>=8'}
+  /@odata/client@2.21.10:
+    resolution: {integrity: sha512-b85im0W4W9Q3oRm2OkqZ+3jksK5nAeeNfxthf3O6xsSpUhGzbxWMniw2SRU1Nv+LeAwxY5EnkDhJtQOLB4aIQA==}
+    engines: {node: '>=18', npm: '>=8'}
     dependencies:
-      '@newdash/newdash': 5.21.4
-      '@odata/parser': 0.2.12
-      '@types/node-fetch': 2.6.2
-      fetch-cookie: 2.1.0
+      '@newdash/newdash': 5.22.1
+      '@odata/parser': 0.2.14
+      '@types/node-fetch': 2.6.11
+      fetch-cookie: 3.0.1
       http-string-parser: 0.0.6
-      node-fetch: 2.6.9
+      node-fetch: 2.7.0
       uuid: 9.0.1
     optionalDependencies:
       fsevents: 2.3.3
@@ -556,16 +556,16 @@ packages:
     resolution: {integrity: sha512-7oJW1gGEYmuJ/deCnVIncsp4oH1dR7xszAMp4KWyGtZ/t78MrwYs4FIsm2/OlBKL3F/zI8wNTMt0TU6/KFm5Kw==}
     engines: {node: '>=10'}
     dependencies:
-      '@newdash/newdash': 5.21.4
+      '@newdash/newdash': 5.22.1
       '@types/express': 4.17.17
       reflect-metadata: 0.1.13
     dev: false
 
-  /@odata/parser@0.2.12:
-    resolution: {integrity: sha512-iOhUmFPmPTXPSQWvckY1AtgOZ3MAAhlwRQwAdjHf0x6XdBFU1eTYaJDRI3rdvBkfMvkui23HUExTr/IMGcmsZQ==}
+  /@odata/parser@0.2.14:
+    resolution: {integrity: sha512-aio+Ok2WbEY+foVe9YL+ondDsXqbk8UEFYCJSmDvbELLDv1WDjY8tx96wm1ASZXIbD3PIMDw+KYbjiLn2aYdxg==}
     engines: {node: '>=10'}
     dependencies:
-      '@newdash/newdash': 5.21.4
+      '@newdash/newdash': 5.22.1
       '@odata/metadata': 0.2.8
     dev: false
 
@@ -843,11 +843,11 @@ packages:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
     dev: false
 
-  /@types/node-fetch@2.6.2:
-    resolution: {integrity: sha512-DHqhlq5jeESLy19TYhLakJ07kNumXWjcDdxXsLUMJZ6ue8VZJj4kLPQVE/2mdHh3xZziNF1xppu5lwmS53HR+A==}
+  /@types/node-fetch@2.6.11:
+    resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
     dependencies:
       '@types/node': 20.12.7
-      form-data: 3.0.1
+      form-data: 4.0.0
     dev: false
 
   /@types/node@20.12.7:
@@ -1971,8 +1971,8 @@ packages:
       reusify: 1.0.4
     dev: true
 
-  /fetch-cookie@2.1.0:
-    resolution: {integrity: sha512-39+cZRbWfbibmj22R2Jy6dmTbAWC+oqun1f1FzQaNurkPDUP4C38jpeZbiXCR88RKRVDp8UcDrbFXkNhN+NjYg==}
+  /fetch-cookie@3.0.1:
+    resolution: {integrity: sha512-ZGXe8Y5Z/1FWqQ9q/CrJhkUD73DyBU9VF0hBQmEO/wPHe4A9PKTjplFDLeFX8aOsYypZUcX5Ji/eByn3VCVO3Q==}
     dependencies:
       set-cookie-parser: 2.5.1
       tough-cookie: 4.1.3
@@ -2049,15 +2049,6 @@ packages:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
     engines: {node: '>= 14.17'}
     dev: true
-
-  /form-data@3.0.1:
-    resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
-    engines: {node: '>= 6'}
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.35
-    dev: false
 
   /form-data@4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
@@ -3036,8 +3027,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /node-fetch@2.6.9:
-    resolution: {integrity: sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==}
+  /node-fetch@2.7.0:
+    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
       encoding: ^0.1.0
